@@ -14,7 +14,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency('net-http-persistent', '~> 4.0')
   s.add_dependency('differ', '~> 0.1')
   s.add_dependency('base64', '>= 0.1')
-  s.add_dependency('rexml', '<= 3.2.6') # emergency fix; newer REXML is no longer pure ruby (requires strscan)
+  s.add_dependency('rexml', '<= 3.2.9') # emergency fix; newer REXML is no longer pure ruby (requires strscan)
   s.files = Dir['lib/**/*.rb'] + %w(README.md LICENSE kramdown-rfc2629.gemspec bin/kdrfc bin/kramdown-rfc bin/kramdown-rfc2629 bin/doilit bin/echars bin/kramdown-rfc-extract-markdown bin/kramdown-rfc-extract-sourcecode bin/kramdown-rfc-lsr data/kramdown-rfc2629.erb data/encoding-fallbacks.txt data/math.json bin/kramdown-rfc-cache-subseries-bibxml bin/kramdown-rfc-autolink-iref-cleanup bin/de-gfm bin/kramdown-rfc-clean-svg-ids)
   s.require_path = 'lib'
   s.executables = ['kramdown-rfc', 'kramdown-rfc2629', 'doilit', 'echars',
