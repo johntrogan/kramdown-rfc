@@ -13,7 +13,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency('unicode-scripts', '~> 1.0')
   s.add_dependency('net-http-persistent', '~> 4.0')
   s.add_dependency('differ', '~> 0.1')
-  s.add_dependency('base64', '>= 0.1')
+  s.add_dependency('base64', '~> 0.2')
   s.add_dependency('ostruct', '~> 0.6')
   s.files = Dir['lib/**/*.rb'] +
             %w(README.md LICENSE kramdown-rfc2629.gemspec
