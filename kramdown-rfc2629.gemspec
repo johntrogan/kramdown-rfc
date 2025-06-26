@@ -22,7 +22,7 @@ spec = Gem::Specification.new do |s|
                bin/kramdown-rfc-extract-sourcecode
                bin/kramdown-rfc-extract-figures-tables
                bin/kramdown-rfc-lsr data/kramdown-rfc2629.erb
-               data/encoding-fallbacks.txt data/math.json
+               data/encoding-fallbacks.txt data/math.json data/rfcxml.xslt
                bin/kramdown-rfc-cache-subseries-bibxml
                bin/kramdown-rfc-autolink-iref-cleanup
                bin/de-gfm
