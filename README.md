@@ -12,10 +12,11 @@ Who would care?  Anybody who is writing Internet-Drafts and RFCs in
 the [IETF][] and prefers (or has co-authors who prefer) to do part of
 their work in markdown.
 
-kramdown-rfc is documented on this page, and also on
-[the wiki][].
+kramdown-rfc is documented on this page, as well as on
+[the wiki][] and via a "[Rosetta Stone]" maintained by the RFC Production Center.
 
 [the wiki]: https://github.com/cabo/kramdown-rfc/wiki
+[Rosetta Stone]: https://authors.ietf.org/en/rfcxml-markdown-syntax-tables
 
 # Usage
 
