@@ -22,7 +22,8 @@ end
 
 FOLD_MSG = "NOTE: '\\' line wrapping per RFC 8792".freeze
 UNFOLD_RE = /\A.*#{FOLD_MSG.sub("\\", "(\\\\\\\\\\\\\\\\?)")}.*\n\r?\n/
-FOLD8792_PROC_RE = /\Afold(?<columns>\d*)(?<hard>hard)?(?:(?<indent_type>left|smart)(?<spaces>\d*))?(?<dry>dry)?\z/
+# use indent as preferred synonym over smart
+FOLD8792_PROC_RE = /\Afold(?<columns>\d*)(?<hard>hard)?(?:(?<indent_type>left|smart|indent)(?<spaces>\d*))?(?<dry>dry)?\z/
 
 def fold8792_options(md)
   indent_type = md[:indent_type].to_sym if md[:indent_type]
@@ -84,7 +85,7 @@ def fold8792_1(s, columns = FOLD_COLUMNS, indent_type = nil, indent_spaces = 0, 
         case indent_type
         when :left
           indent_spaces
-        when :smart
+        when :smart, :indent
           smart_indent ||= li[/\A */].size + indent_spaces
         end
       min_indent = left_indent || 0
