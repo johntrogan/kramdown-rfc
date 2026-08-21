@@ -72,4 +72,26 @@ aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       cccccccccc ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
   dddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 ~~~
+{: post="fold40indent2dry" title="fold40indent2dry"}
+
+~~~ test-vectors
+short line
+short line with one \
+short line with two \\
+aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   bbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      cccccccccc ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  dddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+~~~
+{: post="fold40hardindent2dry" title="fold40hardindent2dry"}
+
+~~~ test-vectors
+short line
+short line with one \
+short line with two \\
+aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   bbbbbbbbbbbbb bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      cccccccccc ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+  dddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+~~~
 {: post="fold40dry" title="fold40dry"}
