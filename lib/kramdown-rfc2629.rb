@@ -109,8 +109,8 @@ module Kramdown
       XREF_TXT = /(?:[^\(]|\([^\)]*\))+/ # parenthesized text
       XREF_RE = /#{XREF_BASE}(?: \(#{XREF_TXT}\))?/
       XREF_RE_M = /\A(#{XREF_BASE})(?: \((#{XREF_TXT})\))?/ # matching version of XREF_RE
-      XREF_SINGLE = /(?:Section|Appendix) #{XREF_RE}/
-      XREF_MULTI = /(?:Sections|Appendices) (?:#{XREF_RE}, )*#{XREF_RE},? and #{XREF_RE}/
+      XREF_SINGLE = /(?:Section|Appendix|Table|Figure) #{XREF_RE}/
+      XREF_MULTI = /(?:Sections|Appendices|Tables|Figures) (?:#{XREF_RE}, )*#{XREF_RE},? and #{XREF_RE}/
       XREF_ANY = /(?:#{XREF_SINGLE}|#{XREF_MULTI})/
       SECTIONS_RE = /(?:#{XREF_ANY} and )?#{XREF_ANY}/
 
@@ -138,6 +138,8 @@ module Kramdown
           return
         end
 
+        reftype = s.match(/\A\w+/).to_s
+        issection = /[SA]/ =~ reftype[0]
         href = href.split(' ')[0] # Remove any trailing (...)
         target1, target2 = href.split("@", 2)
         multi = last_join != nil
@@ -146,7 +148,7 @@ module Kramdown
           m = s.match(/\A#{XREF_RE_M}(, (?:and )?| and )?/)
           break if not m
 
-          if not multi and not m[2] and not m[3] and not target2
+          if not multi and not m[2] and not m[3] and not target2 and issection
             # Modify |attr| if there is a single reference.  This can only be
             # used if there is only one section reference and the section part
             # has no title.
@@ -165,6 +167,9 @@ module Kramdown
           s[m[0]] = ''
 
           attr1 = { 'target' => target1, 'section' => m[1], 'sectionFormat' => 'bare', 'text' => m[2] }
+          if !issection
+            attr1['relative'] = "##{reftype.downcase.chomp('s')}-#{m[1]}"
+          end
           @tree.children << Element.new(:xref, nil, attr1)
           andof = m[3] || last_join || " of "
           if andof == " of " && target2
