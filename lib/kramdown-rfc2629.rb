@@ -1473,7 +1473,9 @@ COLORS
       def convert_footnote(el, indent, opts) # XXX: footnotes into crefs???
         # this would be more like xml2rfc v3:
         # "\n#{' '*indent}<cref>\n#{inner(el.value, indent, opts).rstrip}\n#{' '*indent}</cref>"
-        content = inner(el.value, indent, opts).strip
+        content = inner(el.value, indent, opts.merge(noabbrev: true)).strip
+        #                                 ^___ wrong, but works around xml2rfc grammar bug
+        #                                      https://github.com/cabo/kramdown-rfc/issues/292
         content = content.sub(/\A<t>(.*)<\/t>\z/m) {$1}
         name = ::Kramdown::Parser::RFC2629Kramdown.idref_cleanup(el.options[:name])
         o_name = name.dup
